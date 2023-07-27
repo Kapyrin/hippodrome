@@ -66,7 +66,7 @@ public class HorseTest {
     @Test
     void getDistanceReturnParameter() {
         Horse horse = new Horse("fast", 10, 20);
-        assertEquals(10, horse.getDistance());
+        assertEquals(20, horse.getDistance());
     }
 
     @Test
@@ -79,7 +79,8 @@ public class HorseTest {
     void testMoveMethodRandom() {
         try (MockedStatic<Horse> mockedStatic = mockStatic(Horse.class)) {
             Horse horse = new Horse("Murcielago", 28, 16);
-            mockedStatic.verify(() -> Horse.getRandomDouble(0.2, 0.9));
+            horse.move();
+        mockedStatic.verify(() -> Horse.getRandomDouble(0.2, 0.9));
         }
     }
 
